@@ -16,7 +16,7 @@ function Navbar() {
   }, []);
 
   const fetchCartCount = () => {
-    fetch(`${API_BASE_URL}guest_cart/`)
+    fetch(`https://naphtal112.pythonanywhere.com/api/v1/guest_cart/`)
       .then((response) => {
         if (response.ok) {
           return response.json();

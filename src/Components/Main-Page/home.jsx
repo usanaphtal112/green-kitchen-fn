@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../Styles/main.css";
 import ShowProducts from "../Products/ShowProducts";
 import FeaturedProducts from "../Products/TopCategories";
@@ -16,9 +17,9 @@ const HomePage = () => {
             fresh produce from our farmers.
           </p>
           <div className="box-link">
-            <a href="/product-list/" className="box-link-btn">
+          <Link to="/product-list" className="box-link-btn">
               Shop Now
-            </a>
+            </Link>
           </div>
         </div>
         <div className="box-photo">
