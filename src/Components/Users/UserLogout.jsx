@@ -5,7 +5,7 @@ const UserLogout = () => {
   useEffect(() => {
     const logout = async () => {
       try {
-        await axios.post("http://127.0.0.1:8000/api/v1/users/logout/");
+        await axios.post("https://naphtal112.pythonanywhere.com/api/v1/users/logout/");
         console.log("Logout successful"); // Handle the success response
       } catch (error) {
         console.error(error); // Handle the error response

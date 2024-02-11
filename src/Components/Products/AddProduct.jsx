@@ -3,6 +3,8 @@ import { Form, Button } from "react-bootstrap";
 import axios from "axios";
 import AuthenticationContext from "../Authentications/Authentication";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URLS;
+
 const AddProduct = () => {
   const { authTokens } = useContext(AuthenticationContext); // Get the authentication tokens from the context
   const [name, setName] = useState("");
@@ -20,14 +22,11 @@ const AddProduct = () => {
 
   const fetchCategories = async () => {
     try {
-      const response = await axios.get(
-        "http://localhost:8000/api/v1/categories/",
-        {
-          headers: {
-            Authorization: `Bearer ${authTokens.access}`,
-          },
-        }
-      );
+      const response = await axios.get(`${API_BASE_URL}categories/`, {
+        headers: {
+          Authorization: `Bearer ${authTokens.access}`,
+        },
+      });
       setCategories(response.data);
     } catch (error) {
       console.error(error);
@@ -48,7 +47,7 @@ const AddProduct = () => {
     formData.append("available", available);
 
     try {
-      await axios.post("http://localhost:8000/api/v1/products/", formData, {
+      await axios.post(`${API_BASE_URL}products/`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
           Authorization: `Bearer ${authTokens.access}`,

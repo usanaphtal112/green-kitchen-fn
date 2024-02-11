@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { FaBars, FaTimes, FaSearch, FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "../Styles/main.css";
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URLS;
 
 function Navbar() {
   const navRef = useRef();
@@ -15,7 +16,7 @@ function Navbar() {
   }, []);
 
   const fetchCartCount = () => {
-    fetch("http://127.0.0.1:8000/api/v1/guest_cart/")
+    fetch(`${API_BASE_URL}guest_cart/`)
       .then((response) => {
         if (response.ok) {
           return response.json();

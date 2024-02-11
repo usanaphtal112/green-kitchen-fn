@@ -3,6 +3,8 @@ import { Form, Button, Container } from "react-bootstrap";
 import axios from "axios";
 import "./user.css";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URLS;
+
 const UserSignup = () => {
   const [state, setState] = useState({
     first_name: "",
@@ -51,7 +53,7 @@ const UserSignup = () => {
     }
 
     axios
-      .post("http://localhost:8000/api/v1/users/signup/", {
+      .post("https://naphtal112.pythonanywhere.com/api/v1/users/signup/", {
         email: state.email,
         password: state.password,
         phone_number: state.phone_number,
