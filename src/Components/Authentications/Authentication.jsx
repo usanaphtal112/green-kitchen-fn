@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
 
   const loginUser = async (email, password) => {
-    const response = await fetch("http://127.0.0.1:8000/api/v1/users/login/", {
+    const response = await fetch("https://naphtal112.pythonanywhere.com/api/v1/users/login/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -70,7 +70,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const registerUser = async (email, username, password, password2) => {
-    const response = await fetch("http://127.0.0.1:8000/api/v1/signup/", {
+    const response = await fetch("https://naphtal112.pythonanywhere.com/api/v1/signup/", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -13,7 +13,7 @@ const ProductDetails = () => {
     const fetchProductDetails = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/api/v1/products/${id}/`
+          `https://naphtal112.pythonanywhere.com/api/v1/products/${id}/`
         );
 
         if (response.status === 200) {

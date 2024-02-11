@@ -6,6 +6,8 @@ import ReactStars from "react-rating-stars-component";
 import { addToCart, fetchReviewsForProduct } from "../Utility/productUtilities";
 import "./ProductList.css";
 
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URLS;
+
 const ShowProducts = () => {
   const [products, setProducts] = useState([]);
   const navigate = useNavigate();
@@ -13,7 +15,7 @@ const ShowProducts = () => {
   const fetchProductsAndReviews = async () => {
     try {
       const productsResponse = await axios.get(
-        "http://localhost:8000/api/v1/products/"
+        `https://naphtal112.pythonanywhere.com/api/v1/products/`
       );
       const productsWithReviews = await Promise.all(
         productsResponse.data.map(async (product) => {

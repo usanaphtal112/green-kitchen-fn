@@ -6,7 +6,7 @@ export const addToCart = async (product, navigate) => {
   try {
     console.log("Adding product to cart:", product.id);
     const response = await axios.post(
-      `http://localhost:8000/api/v1/guest_cart/${product.id}/`,
+      `https://naphtal112.pythonanywhere.com/api/v1/guest_cart/${product.id}/`,
       {
         quantity: 1,
       },
@@ -30,7 +30,7 @@ export const addToCart = async (product, navigate) => {
 export const fetchReviewsForProduct = async (productId) => {
   try {
     const response = await axios.get(
-      `http://localhost:8000/api/v1/review/${productId}/`
+      `https://naphtal112.pythonanywhere.com/api/v1/review/${productId}/`
     );
     return response.data;
   } catch (error) {
@@ -43,7 +43,7 @@ export const submitOrder = async (formData) => {
   try {
     console.log("submitOrder function called with formData:", formData);
     const response = await axios.post(
-      "http://localhost:8000/api/v1/guest-checkout/",
+      "https://naphtal112.pythonanywhere.com/api/v1/guest-checkout/",
       formData
     );
     console.log("Response from submitOrder:", response);
@@ -56,7 +56,7 @@ export const submitOrder = async (formData) => {
 export const fetchCartItems = async () => {
   try {
     const response = await axios.get(
-      "http://localhost:8000/api/v1/guest_cart/"
+      "https://naphtal112.pythonanywhere.com/api/v1/guest_cart/"
     );
     return response.data;
   } catch (error) {
@@ -67,7 +67,7 @@ export const fetchCartItems = async () => {
 export const changeQuantity = async (product_id, quantity) => {
   try {
     const response = await axios.patch(
-      `http://localhost:8000/api/v1/guest_cart/${product_id}/`,
+      `https://naphtal112.pythonanywhere.com/api/v1/guest_cart/${product_id}/`,
       { quantity },
       {
         headers: {
@@ -89,7 +89,7 @@ export const changeQuantity = async (product_id, quantity) => {
 export const removeFromCart = async (product_id) => {
   try {
     const response = await axios.delete(
-      `http://localhost:8000/api/v1/guest_cart/${product_id}/`,
+      `https://naphtal112.pythonanywhere.com/api/v1/guest_cart/${product_id}/`,
       {
         data: { quantity: 0 },
       }
