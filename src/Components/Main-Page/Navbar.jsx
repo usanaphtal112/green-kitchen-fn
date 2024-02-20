@@ -16,7 +16,7 @@ function Navbar() {
   }, []);
 
   const fetchCartCount = () => {
-    fetch(`https://naphtal112.pythonanywhere.com/api/v1/guest_cart/`)
+    fetch(`https://greenkitchen.vercel.app/api/v1/guest_cart/`)
       .then((response) => {
         if (response.ok) {
           return response.json();

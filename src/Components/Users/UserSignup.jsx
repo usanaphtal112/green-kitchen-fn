@@ -53,7 +53,7 @@ const UserSignup = () => {
     }
 
     axios
-      .post("https://naphtal112.pythonanywhere.com/api/v1/users/signup/", {
+      .post("https://greenkitchen.vercel.app/api/v1/users/signup/", {
         email: state.email,
         password: state.password,
         phone_number: state.phone_number,
