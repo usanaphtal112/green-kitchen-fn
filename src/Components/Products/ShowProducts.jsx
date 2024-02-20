@@ -15,7 +15,7 @@ const ShowProducts = () => {
   const fetchProductsAndReviews = async () => {
     try {
       const productsResponse = await axios.get(
-        `https://naphtal112.pythonanywhere.com/api/v1/products/`
+        `https://greenkitchen.vercel.app/api/v1/products/`
       );
       const productsWithReviews = await Promise.all(
         productsResponse.data.map(async (product) => {

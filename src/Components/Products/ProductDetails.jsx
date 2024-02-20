@@ -13,7 +13,7 @@ const ProductDetails = () => {
     const fetchProductDetails = async () => {
       try {
         const response = await axios.get(
-          `https://naphtal112.pythonanywhere.com/api/v1/products/${id}/`
+          `https://greenkitchen.vercel.app/api/v1/products/${id}/`
         );
 
         if (response.status === 200) {

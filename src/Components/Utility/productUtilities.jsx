@@ -4,9 +4,10 @@ const API_BASE_URL = import.meta.env.VITE_API_BASE_URLS;
 
 export const addToCart = async (product, navigate) => {
   try {
+    
     console.log("Adding product to cart:", product.id);
     const response = await axios.post(
-      `https://naphtal112.pythonanywhere.com/api/v1/guest_cart/${product.id}/`,
+      `https://greenkitchen.vercel.app/api/v1/guest_cart/${product.id}/`,
       {
         quantity: 1,
       },
@@ -16,6 +17,8 @@ export const addToCart = async (product, navigate) => {
         },
       }
     );
+
+    console.log("Response status:", response.status);
 
     if (response.status === 201) {
       navigate("/guest-cart");
@@ -30,7 +33,7 @@ export const addToCart = async (product, navigate) => {
 export const fetchReviewsForProduct = async (productId) => {
   try {
     const response = await axios.get(
-      `https://naphtal112.pythonanywhere.com/api/v1/review/${productId}/`
+      `https://greenkitchen.vercel.app/api/v1/review/${productId}/`
     );
     return response.data;
   } catch (error) {
@@ -43,7 +46,7 @@ export const submitOrder = async (formData) => {
   try {
     console.log("submitOrder function called with formData:", formData);
     const response = await axios.post(
-      "https://naphtal112.pythonanywhere.com/api/v1/guest-checkout/",
+      "https://greenkitchen.vercel.app/api/v1/guest-checkout/",
       formData
     );
     console.log("Response from submitOrder:", response);
@@ -56,7 +59,7 @@ export const submitOrder = async (formData) => {
 export const fetchCartItems = async () => {
   try {
     const response = await axios.get(
-      "https://naphtal112.pythonanywhere.com/api/v1/guest_cart/"
+      "https://greenkitchen.vercel.app/api/v1/guest_cart/"
     );
     return response.data;
   } catch (error) {
@@ -67,7 +70,7 @@ export const fetchCartItems = async () => {
 export const changeQuantity = async (product_id, quantity) => {
   try {
     const response = await axios.patch(
-      `https://naphtal112.pythonanywhere.com/api/v1/guest_cart/${product_id}/`,
+      `https://greenkitchen.vercel.app/api/v1/guest_cart/${product_id}/`,
       { quantity },
       {
         headers: {
@@ -89,7 +92,7 @@ export const changeQuantity = async (product_id, quantity) => {
 export const removeFromCart = async (product_id) => {
   try {
     const response = await axios.delete(
-      `https://naphtal112.pythonanywhere.com/api/v1/guest_cart/${product_id}/`,
+      `https://greenkitchen.vercel.app/api/v1/guest_cart/${product_id}/`,
       {
         data: { quantity: 0 },
       }
